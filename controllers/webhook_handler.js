@@ -72,7 +72,7 @@ async function replyWebhook (req, res) {
         const payload = {
           date: new Date().toISOString().split("T")[0],
           item: text_body[0] || null,
-          price: text_body[1] || null,
+          price: text_body[1] ? parseFloat(text_body[1]).toFixed(2) : null,
           comment: text_body[2] || null,
           sender: senderWaId // Include sender's ID for reference
         };
